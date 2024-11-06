@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const questionRoutes = require('./routes/questionRoutes');
+const testRoutes = require('./routes/test');
 const app = express();
 const PORT = 5000;
 
@@ -23,6 +24,7 @@ mongoose.connect('mongodb+srv://gonewave:Cj7andpotcawe%40123@cluster0.uvsahex.mo
 
 // Routes
 app.use('/api/questions', questionRoutes);
+app.use('/api',testRoutes);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html')); // Adjust the path according to your directory structure
 });
